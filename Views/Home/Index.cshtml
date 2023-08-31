@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model AspnetIdentityRoleBasedTutorial.Models.BacchaModel;
+
+
+
+
+<div class="text-center " >
+    <div class="middle-header">
+        <div class="row">
+
+            <div class="col-md-3 col-sm-2">
+                <div class="left-middle-header logo">
+                    <a href=""> <img src='https://www.dotm.gov.np/content/img/gov-logo.png' style="height: 150px; "
+                            class="logo"> </a>
+
+                </div>
+            </div>
+
+            <div class="col-md-9 col-sm-8">
+                <div class="right-middle-header">
+                    <div class="top-nav">
+                        <div class="row clearfix">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="left-middle-header-text">
+                                    <h6 style="color: red;">नेपाल सरकार</h6>
+                                    <h6 style="color: red;">स्वास्थ्य तथा जनसंख्या मन्त्रालय</h6>
+                                    <h3 style="color: red;">अनलाइन जन्म दर्ता व्यवस्थापन कार्यालय</h3>
+                                    <h6 style="color: red;">रामशाहपथ, काठमाडौं, नेपाल</h6>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 text-end col-md-6">
+                                <h1 class="display-4">
+                                    <img src="https://www.dotm.gov.np/content/img/flag.gif" alt="nepali flag">
+                                </h1>
+                                <div class="datetime">
+                                    <span id="DATE_IN_NEPALI">@DateTime.Now.ToString() </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <form asp-action="Index" asp-controller="Home" method="post">
+        <div class="input-group flex-nowrap " style="margin-top: 80px; ">
+            <span class="input-group-text" id="addon-wrapping">UID</span>
+            <input asp-for="Id" type="text" class="form-control" placeholder="a3edsdf-sdfsdf-sdfsdf-saq1210soxep"
+                aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+        <button type="submit" class="btn btn-dark"
+            style="margin-top: 20px; padding-left: 40px;  padding-right: 40px;">Submit</button>
+    </form>
+    <div style="margin: 20px; font-size: 20px;"></div>
+    @if(@Model !=null && !@Model.Id.Equals(Guid.Empty)){
+        if(@Model.IsVerified){
+
+
+
+<div id="dvContainer">
+<div class="card" style="width: 18rem;  ">
+  <img class="card-img-top" src="@Model.Image" alt="Card image cap">
+  <div class="card-body">
+    <h6 class="card-title" style="text-align: left;"> Status Verified &#x2705</h6>
+    <h6 class="card-title" style="text-align: left;"> Baby Name: @Model.Name</h6>
+
+  </div>
+  <ul class="list-group list-group-flush" style="padding-left: 0px; text-align: left;">
+    <li class="list-group-item">Father Name: @Model.FatherName</li>
+    <li class="list-group-item">Mother Name: @Model.MotherName</li>
+  </ul>
+  @* <div class="card-body">
+     <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> 
+  </div> *@
+</div>
+</div>
+
+}else{
+     <div style="border-radius: 10px; padding: 40px 40px; background-color: beige;">
+                <h1> Pending Verification!!</h1>
+    </div>
+        }
+    }
+  
+</div>
+
+

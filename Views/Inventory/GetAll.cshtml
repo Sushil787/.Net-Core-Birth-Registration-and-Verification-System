@@ -1,0 +1,61 @@
+﻿@model List<AspnetIdentityRoleBasedTutorial.Models.BacchaModel>;
+
+<div >
+    
+
+
+<h3>Registered List </h3>
+@if(Model!=null){
+    <table class="table">
+<thead >
+    <tr>
+         <th>Id</th>
+         <th>Name</th> 
+         <th>Image</th>
+         <th>FatherName</th>
+         <th>MotherName</th>
+         <th>GrandFather</th>
+         <th>GrandMother</th>
+         <th>HomeLocation</th>
+         <th>HospitaName</th>
+         <th>HospitaLocation</th>
+         <th style="white-space: nowrap;">Date of Birth</th>
+         <th>IsVerified</th>
+    </tr>
+</thead>
+<tbody>
+@foreach(var item in Model ){
+<tr>
+    <tr>
+    <td>@item.Id</td>
+    <td>@item.Name</td>
+    <td><img src="@item.Image" alt="Baby Image" style="width: 100px; height: 100px;"></td>
+    <td>@item.FatherName</td>
+    <td>@item.MotherName</td>
+    <td>@item.GrandFatherName</td>
+    <td>@item.GrandMotherName</td>
+    <td>@item.HomeLocation</td>
+    <td>@item.HospitalName</td>
+    <td>@item.HospitaLocation</td>
+    <td>@item.DateOfBirth</td>
+<td >
+       
+       @if( item.IsVerified){
+        <p>Verified</p>
+       }else{
+        <a href="/Inventory/Verify/@item.Id">Verify</a>
+        <p>UnVerified</p>
+       }
+    </td></tr>
+
+   
+
+</tr>
+    }
+</tbody>
+</table>
+
+}else{
+    <h1>No Data Enry Yet</h1>
+}
+</div>

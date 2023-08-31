@@ -1,0 +1,142 @@
+﻿
+@model AspnetIdentityRoleBasedTutorial.Models.BacchaModel
+
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+
+<h2 style="margin-bottom: 20px;"> Register Baby</h2>
+<h6>@ViewBag.ErrorData</h6>
+<form asp-action="Register" method="post" asp-controller="Registration">
+
+@* baby name *@
+<div class="input-group mb-3">
+  <input required 
+    type="text"
+    class="form-control"
+    asp-for="Name"
+    placeholder="Baby Name"
+    aria-describedby="basic-addon2"
+  />
+</div>
+
+
+@* baby image *@
+<label for="basic-url" class="form-label">Baby Image</label>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+  <input required 
+    type="text"
+    class="form-control"
+    id="basic-url1"
+    asp-for="Image"
+    aria-describedby="basic-addon3"
+  />
+</div>
+
+
+@* father name *@
+
+<div class="input-group mb-3">
+  <span class="input-group-text">Father Name</span>
+  <input required 
+    type="text"
+    class="form-control"
+    asp-for="FatherName"
+  />
+</div>
+
+@* mother name *@
+<div class="input-group mb-3">
+  <span class="input-group-text">Mother Name</span>
+  <input required 
+    type="text"
+    class="form-control"
+    asp-for="MotherName"
+  />
+</div>
+
+
+@* grand father name *@
+
+<div class="input-group mb-3">
+  <span class="input-group-text">GrandFather Name</span>
+  <input required 
+    type="text"
+    class="form-control"
+   asp-for="GrandFatherName"
+  />
+  
+  @* Grand Mother name *@
+  <span class="input-group-text" style="margin-left: 20px;">GrandMother Name</span>
+  <input required 
+    type="text"
+    class="form-control"
+    asp-for="GrandMotherName"
+  />
+</div>
+
+
+@* Home Location *@
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon2">Home Location</span>
+  <input required 
+    type="text"
+    class="form-control"
+    placeholder="Dang, Nepal"
+    asp-for="HomeLocation"
+    aria-describedby="basic-addon2"
+  />
+</div>
+
+
+
+ @* Hospital Name *@
+
+ <div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon2">Hospital Name</span>
+  <input required 
+    type="text"
+    class="form-control"
+    placeholder="Bir Hospital"
+    asp-for="HospitalName"
+    aria-describedby="basic-addon2"
+  />
+</div>
+
+ @* Hospital Location *@
+
+ <div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon2">Hospital Location</span>
+  <input required 
+    type="text"
+    class="form-control"
+    placeholder="Dang, Nepal"
+    asp-for="HospitaLocation"
+    aria-describedby="basic-addon2"
+  />
+</div>
+
+
+
+@* Date and Time of Birth *@
+
+ <div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon2">Date Time duing Birth</span>
+  <input required 
+    type="datetime-local"
+    class="form-control"
+    placeholder="Dang, Nepal"
+    asp-for="DateOfBirth"
+    aria-describedby="basic-addon2"
+  />
+</div>
+
+
+  <button type="submit" onclick="" class="btn btn-dark" style="margin-top: 20px; padding-left: 40px;  padding-right: 40px;">Submit</button>
+
+</form>
